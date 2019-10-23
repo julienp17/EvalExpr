@@ -7,9 +7,14 @@
 
 CC = gcc
 
-SRC = ../src/
+SRC = ../src/eval_expr.c
 
-SRC_UT = ./test
+SRC_UT = ./test_only_add.c \
+	./test_only_sub.c \
+	./test_only_mul.c \
+	./test_only_div.c \
+	./test_only_mod.c \
+	./test_basic_ops.c
 
 OBJ = $(SRC_UT:.c=.o)
 
