@@ -26,3 +26,17 @@ void queue_insert(queue_t **queue_front, void *data)
         current_element->next = new_element;
     }
 }
+
+void *queue_pop(queue_t **queue_front)
+{
+    queue_t *to_pop = NULL;
+    void *data = NULL;
+
+    if ((*queue_front) == NULL)
+        return (NULL);
+    to_pop = (*queue_front);
+    data = (*queue_front)->data;
+    (*queue_front) = (*queue_front)->next;
+    free(to_pop);
+    return (data);
+}

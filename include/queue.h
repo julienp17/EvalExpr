@@ -14,5 +14,5 @@
     } queue_t;
 
     void queue_insert(queue_t **queue_front, void *data);
-    queue_t *queue_pop();
+    void *queue_pop(queue_t **queue_front);
 #endif
