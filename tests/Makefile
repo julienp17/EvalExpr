@@ -22,7 +22,7 @@ OBJ = $(SRC_UT:.c=.o)
 
 OBJ_SRC = $(SRC:.c=.o)
 
-CFLAGS = -I../include/ -W -Wall -Wextra -Werror --coverage
+CFLAGS = -I../include/ -W -Wall -Wextra --coverage
 
 LDFLAGS = -L../lib/my -lmy -lcriterion -lgcov --coverage
 
