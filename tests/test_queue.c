@@ -34,3 +34,11 @@ Test(queue_insert, two_inserts_char_int)
     cr_assert_eq(queue->next->data, nb);
 }
 
+Test(queue_pop, empty_queue)
+{
+    queue_t *queue = NULL;
+    char *str = NULL;
+
+    str = queue_pop(&queue);
+    cr_assert_null(str);
+}
