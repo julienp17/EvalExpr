@@ -5,6 +5,7 @@
 ** Main file for EvalExpr
 */
 
+#include "my.h"
 #include "evalexpr.h"
 
 int main(int ac, char **av)
