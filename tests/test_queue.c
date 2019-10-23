@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include "queue.h"
 
-Test(queue_insert, two_inserts)
+Test(queue_insert, two_inserts_str_str)
 {
     queue_t *queue = NULL;
     char *str = "bonjour";
@@ -20,3 +20,17 @@ Test(queue_insert, two_inserts)
     queue_insert(&queue, str2);
     cr_assert_str_eq(queue->next->data, str2);
 }
+
+Test(queue_insert, two_inserts_char_int)
+{
+    queue_t *queue = NULL;
+    char my_char = '+';
+    int nb = 13;
+
+    queue_insert(&queue, my_char);
+    cr_assert_not_null(queue);
+    cr_assert_eq(queue->data, my_char);
+    queue_insert(&queue, nb);
+    cr_assert_eq(queue->next->data, nb);
+}
+
