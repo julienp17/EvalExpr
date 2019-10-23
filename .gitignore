@@ -3,3 +3,5 @@
 *.gcno
 *.gcov
 vgcore*
+unit_tests
+eval_expr
