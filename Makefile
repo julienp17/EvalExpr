@@ -7,14 +7,14 @@
 
 CC = gcc
 
-SRC = ./src/eval_expr.c \
-	./src/main.c
+SRC = ./src/main.c \
+	./src/eval_expr.c \
 
 OBJ = $(SRC:.c=.o)
 
 CFLAGS = -I./include/ -W -Wall -Wextra -Werror
 
-LDFLAGS =
+LDFLAGS = -L./lib/my -lmy
 
 DBFLAGS = -g -g3 -ggdb
 
@@ -22,13 +22,13 @@ NAME = ./eval_expr
 
 all: $(NAME)
 
-$(NAME): lib $(OBJ)
+$(NAME): libmy $(OBJ)
 	$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS)
 
-lib:
-	make -C ./lib/my/ all
+libmy:
+	make -C ./lib/my all
 
-tests_run: $(NAME)
+tests_run: libmy $(NAME)
 	make -C ./tests/ all
 
 clean:
