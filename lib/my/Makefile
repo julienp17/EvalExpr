@@ -9,9 +9,10 @@ CC = gcc
 
 SRC = ./my_is_space.c \
 	./my_is_digit.c \
-	./my_is_empty_str.c \
 	./my_strcmp.c \
-	./my_strlen.c
+	./my_strlen.c \
+	./my_put_nbr.c \
+	./my_putchar.c
 
 OBJ = $(SRC:.c=.o)
 
