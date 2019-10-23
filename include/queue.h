@@ -13,6 +13,6 @@
         struct queue *next;
     } queue_t;
 
-    void queue_insert(queue_t **queue_front, void *data);
+    void queue_push(queue_t **queue_front, void *data);
     void *queue_pop(queue_t **queue_front);
 #endif

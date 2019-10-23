@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "queue.h"
 
-void queue_insert(queue_t **queue_front, void *data)
+void queue_push(queue_t **queue_front, void *data)
 {
     queue_t *new_element = NULL;
     queue_t *current_element = NULL;
@@ -35,7 +35,7 @@ void *queue_pop(queue_t **queue_front)
     if ((*queue_front) == NULL)
         return (NULL);
     to_pop = (*queue_front);
-    data = (*queue_front)->data;
+    data = to_pop->data;
     (*queue_front) = (*queue_front)->next;
     free(to_pop);
     return (data);
