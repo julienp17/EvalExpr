@@ -7,7 +7,8 @@
 
 CC = gcc
 
-SRC = ./src/
+SRC = ./src/eval_expr.c \
+	./src/main.c
 
 OBJ = $(SRC:.c=.o)
 
