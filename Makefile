@@ -9,10 +9,12 @@ CC = gcc
 
 SRC = ./src/main.c \
 	./src/eval_expr.c \
+	./src/queue.c \
+	./src/stack.c
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -I./include/ -W -Wall -Wextra 
+CFLAGS = -I./include/ -W -Wall -Wextra
 
 LDFLAGS = -L./lib/my -lmy
 
@@ -28,7 +30,7 @@ $(NAME): libmy $(OBJ)
 libmy:
 	make -C ./lib/my all
 
-tests_run: libmy $(NAME)
+tests_run: libmy $(OBJ)
 	make -C ./tests/ all
 
 clean:
