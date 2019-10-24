@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** C Pool EvalExpr
 ** File description:
-** Unit tests for basic operations
+** Unit tests for normal operations
 */
 
 #include <criterion/criterion.h>
