@@ -13,7 +13,7 @@
 #include "operators.h"
 
 void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack);
-#include <stdio.h>
+
 queue_t *shunting_yard(char const *expr)
 {
     int i = 0;
