@@ -35,22 +35,22 @@ Test(get_tokens_nb, 5_tokens)
     cr_assert_eq(tokens_nb, 5);
 }
 
-Test(get_next_chars_nb, 5_tokens)
+Test(get_next_chars_nb, operator)
 {
     char *expr = "32+14-5";
     int j = 0;
     int chars_nb = 0;
 
-    chars_nb = get_next_chars_nb(expr);
-    cr_assert_eq(tokens_nb, 2);
+    chars_nb = get_next_chars_nb(expr, j);
+    cr_assert_eq(chars_nb, 2);
 }
 
-Test(get_next_chars_nb, 5_tokens)
+Test(get_next_chars_nb, operand)
 {
     char *expr = "32+14-5";
     int j = 0;
     int chars_nb = 0;
 
-    chars_nb = get_next_chars_nb(expr);
-    cr_assert_eq(tokens_nb, 2);
+    chars_nb = get_next_chars_nb(expr, j);
+    cr_assert_eq(chars_nb, 2);
 }
