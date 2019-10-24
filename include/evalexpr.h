@@ -9,4 +9,9 @@
     #define __DEF_EVALEXPR__
 
     int eval_expr(char const *str);
+
+    char **exp_to_tokens(char const *expr);
+    int get_tokens_nb(char const *str);
+    int get_next_chars_nb(char const *str, int j);
+    char *get_next_token(char const *str, int *j);
 #endif

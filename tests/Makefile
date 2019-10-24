@@ -9,7 +9,8 @@ CC = gcc
 
 SRC = ../src/eval_expr.c \
 	../src/queue.c \
-	../src/stack.c
+	../src/stack.c \
+	../src/my_expr_to_tokens.c
 
 SRC_UT = ./test_only_add.c \
 	./test_only_sub.c \
@@ -18,7 +19,8 @@ SRC_UT = ./test_only_add.c \
 	./test_only_mod.c \
 	./test_ops.c \
 	./test_queue.c \
-	./test_stack.c
+	./test_stack.c \
+	./test_my_expr_to_tokens.c
 
 OBJ = $(SRC_UT:.c=.o)
 
