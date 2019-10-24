@@ -24,9 +24,9 @@ char *shunting_yard(char *expr)
     queue_t *queue = NULL;
     stack_t *stack = NULL;
 
-    tokens = my_expr_to_tokens(expr);
+    tokens = expr_to_tokens(expr);
     while (tokens[i] != NULL) {
-        if (my_str_isnum(tokens[i][0]))
+        if (my_str_isnum(tokens[i]))
             queue_push(&queue, tokens[i]);
         if (is_operator(tokens[i][0])) {
             while (has_ge_precedence(stack->data, tokens[i][0]) && !is_left_paren(stack->data))
