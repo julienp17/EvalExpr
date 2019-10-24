@@ -5,7 +5,6 @@
 ** Transforms an infix mathematical expression to a postfix one
 */
 
-#include <stdlib.h>
 #include <stddef.h>
 #include "my.h"
 #include "evalexpr.h"
@@ -14,17 +13,17 @@
 #include "operators.h"
 
 void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack);
-
+#include <stdio.h>
 queue_t *shunting_yard(char const *expr)
 {
     int i = 0;
     char **tokens = NULL;
-    queue_t *queue = malloc(sizeof(*queue));
-    stack_t *stack = malloc(sizeof(*stack));
+    queue_t *queue = NULL;
+    stack_t *stack = NULL;
 
     tokens = expr_to_tokens(expr);
     get_output_queue(tokens, i, &queue, &stack);
-    while (stack->data != NULL)
+    while (stack != NULL)
         queue_push(&queue, stack_pop(&stack));
     return (queue);
 }
@@ -36,7 +35,8 @@ void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack)
     if (my_str_isnum(tokens[i]))
         queue_push(queue, tokens[i]);
     if (is_operator(tokens[i][0])) {
-        while (has_ge_precedence((*stack)->data[0], tokens[i][0]) &&
+        while ((*stack) != NULL &&
+               has_ge_precedence((*stack)->data[0], tokens[i][0]) &&
                !is_left_paren((*stack)->data[0]))
             queue_push(queue, stack_pop(stack));
         stack_push(stack, tokens[i]);

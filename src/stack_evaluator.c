@@ -13,7 +13,7 @@
 
 char *get_op_res_str(char *strnum1, operator_t operator, char *strnum2);
 
-int eval_stack(queue_t *queue)
+int eval_stack(queue_t **queue)
 {
     stack_t *stack = NULL;
     char *res = NULL;
@@ -21,10 +21,10 @@ int eval_stack(queue_t *queue)
     char *strnum2 = NULL;
     char *op = NULL;
 
-    while (queue != NULL) {
-        while (my_str_isnum(queue->data))
-            stack_push(&stack, queue_pop(&queue));
-        op = queue_pop(&queue);
+    while ((*queue) != NULL) {
+        while (my_str_isnum((*queue)->data))
+            stack_push(&stack, queue_pop(queue));
+        op = queue_pop(queue);
         strnum2 = stack_pop(&stack);
         strnum1 = stack_pop(&stack);
         res = get_op_res_str(strnum1, get_operator(op[0]), strnum2);
