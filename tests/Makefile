@@ -16,7 +16,7 @@ SRC_UT = ./test_only_add.c \
 	./test_only_mul.c \
 	./test_only_div.c \
 	./test_only_mod.c \
-	./test_basic_ops.c \
+	./test_ops.c \
 	./test_queue.c \
 	./test_stack.c
 
@@ -24,7 +24,7 @@ OBJ = $(SRC_UT:.c=.o)
 
 OBJ_SRC = $(SRC:.c=.o)
 
-CFLAGS = -I../include/ -W -Wall -Wextra --coverage
+CFLAGS = -I../include/ -W -Wall -Wextra -Werror --coverage
 
 LDFLAGS = -L../lib/my -lmy -lcriterion -lgcov --coverage
 
