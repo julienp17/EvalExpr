@@ -10,7 +10,7 @@ CC = gcc
 SRC = ../src/eval_expr.c \
 	../src/queue.c \
 	../src/stack.c \
-	../src/my_expr_to_tokens.c
+	../src/expr_to_tokens.c
 
 SRC_UT = ./test_only_add.c \
 	./test_only_sub.c \
