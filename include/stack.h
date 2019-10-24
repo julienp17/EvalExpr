@@ -9,10 +9,10 @@
     #define __DEF_STACK__
 
     typedef struct stack {
-        void *data;
+        char *data;
         struct stack *next;
     } stack_t;
 
-    void stack_push(stack_t **stack_top, void *data);
-    void *stack_pop(stack_t **stack_top);
+    void stack_push(stack_t **stack_top, char *data);
+    char *stack_pop(stack_t **stack_top);
 #endif

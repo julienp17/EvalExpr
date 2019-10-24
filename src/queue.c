@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "queue.h"
 
-void queue_push(queue_t **queue_front, void *data)
+void queue_push(queue_t **queue_front, char *data)
 {
     queue_t *new_element = NULL;
     queue_t *current_element = NULL;
@@ -27,10 +27,10 @@ void queue_push(queue_t **queue_front, void *data)
     }
 }
 
-void *queue_pop(queue_t **queue_front)
+char *queue_pop(queue_t **queue_front)
 {
     queue_t *to_pop = NULL;
-    void *data = NULL;
+    char *data = NULL;
 
     if ((*queue_front) == NULL)
         return (NULL);

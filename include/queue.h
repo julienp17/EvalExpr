@@ -9,10 +9,10 @@
     #define __DEF_QUEUE__
 
     typedef struct queue {
-        void *data;
+        char *data;
         struct queue *next;
     } queue_t;
 
-    void queue_push(queue_t **queue_front, void *data);
-    void *queue_pop(queue_t **queue_front);
+    void queue_push(queue_t **queue_front, char *data);
+    char *queue_pop(queue_t **queue_front);
 #endif

@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include "stack.h"
 
-void stack_push(stack_t **stack_top, void *data)
+void stack_push(stack_t **stack_top, char *data)
 {
     stack_t *element = NULL;
 
@@ -19,7 +19,7 @@ void stack_push(stack_t **stack_top, void *data)
     (*stack_top) = element;
 }
 
-void *stack_pop(stack_t **stack_top)
+char *stack_pop(stack_t **stack_top)
 {
     stack_t *to_pop = NULL;
     void *data = NULL;
