@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include "queue.h"
 
-Test(queue_push, two_inserts_str_str)
+Test(queue_push, two_push)
 {
     queue_t *queue = NULL;
     char *str = "bonjour";
@@ -21,19 +21,6 @@ Test(queue_push, two_inserts_str_str)
     cr_assert_str_eq(queue->next->data, str2);
 }
 
-Test(queue_push, two_inserts_char_int)
-{
-    queue_t *queue = NULL;
-    char my_char = '+';
-    int nb = 13;
-
-    queue_push(&queue, my_char);
-    cr_assert_not_null(queue);
-    cr_assert_eq(queue->data, my_char);
-    queue_push(&queue, nb);
-    cr_assert_eq(queue->next->data, nb);
-}
-
 Test(queue_pop, empty_queue)
 {
     queue_t *queue = NULL;
@@ -43,7 +30,7 @@ Test(queue_pop, empty_queue)
     cr_assert_null(str);
 }
 
-Test(queue_pop, one_pop_str_str)
+Test(queue_pop, one_pop)
 {
     queue_t *queue = NULL;
     char *actual = NULL;
@@ -54,19 +41,4 @@ Test(queue_pop, one_pop_str_str)
     queue_push(&queue, str2);
     actual = queue_pop(&queue);
     cr_assert_str_eq(actual, expected);
-}
-
-Test(queue_pop, two_pop_char_int)
-{
-    queue_t *queue = NULL;
-    int actual = 0;
-    char my_char = '*';
-    int nb = 38;
-
-    queue_push(&queue, my_char);
-    queue_push(&queue, nb);
-    actual = queue_pop(&queue);
-    cr_assert_eq(actual, my_char);
-    actual = queue_pop(&queue);
-    cr_assert_eq(actual, nb);
 }
