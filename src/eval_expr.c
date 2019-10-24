@@ -5,9 +5,13 @@
 ** Returns the result of an expression as an integer
 */
 
+#include <stddef.h>
+#include "queue.h"
+
 int eval_expr(char const *str)
 {
-    if (str == 0)
-        return (1);
-    return (0);
+    queue_t *output_queue = NULL;
+
+    output_queue = shunting_yard(str);
+    return (eval_stack(output_queue));
 }
