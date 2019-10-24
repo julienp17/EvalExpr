@@ -8,7 +8,8 @@
 #ifndef __DEF_OPERATORS__
     #define __DEF_OPERATORS__
 
-    #define OPERATORS "+-*/%"
+    #define OPERATORS       "+-*/%"
+    #define OPERATORS_NB    5
 
     typedef struct operator {
         char symbol;
@@ -17,7 +18,7 @@
     } operator_t;
 
     int is_operator(char const my_char);
-    operator_t *get_operation(char my_char);
+    operator_t get_operator(char const symbol);
 
     int my_add(int a, int b);
     int my_sub(int a, int b);

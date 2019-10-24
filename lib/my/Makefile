@@ -7,13 +7,16 @@
 
 CC = gcc
 
-SRC = ./my_is_space.c \
+SRC = ./my_get_denominator.c \
+	./my_int_to_strnum.c \
+	./my_intlen.c \
 	./my_is_digit.c \
+	./my_put_nbr.c \
+	./my_putchar.c \
 	./my_str_isnum.c \
 	./my_strcmp.c \
 	./my_strlen.c \
-	./my_put_nbr.c \
-	./my_putchar.c
+	./my_strnum_to_int.c \
 
 OBJ = $(SRC:.c=.o)
 

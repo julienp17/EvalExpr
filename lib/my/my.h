@@ -10,11 +10,14 @@
 
     void my_putchar(char my_char);
 
-    int my_is_empty_str(char const *str);
     int my_is_digit(char const my_char);
-    int my_str_isnum(char const my_char);
-    int my_is_space(char const my_char);
+    int my_str_isnum(char const *str);
     int my_strcmp(char const *s1, char const *s2);
+    int my_get_denominator(int const nb);
+    int my_intlen(int nb);
     int my_strlen(char const *str);
     int my_put_nbr(int nb);
+    int my_strnum_to_int(char *str);
+
+    char *my_int_to_strnum(int nb);
 #endif

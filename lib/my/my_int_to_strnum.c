@@ -5,9 +5,12 @@
 ** Converts an integer into a numerical string
 */
 
-int my_intlen(int nb);
+#include <stdlib.h>
 
-char *int_to_strnum(int nb)
+int my_intlen(int nb);
+int my_get_denominator(int const nb);
+
+char *my_int_to_strnum(int nb)
 {
     int i = 0;
     int denominator = my_get_denominator(nb);

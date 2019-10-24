@@ -5,6 +5,8 @@
 ** Handles operators
 */
 
+#include <stddef.h>
+#include "my.h"
 #include "operators.h"
 
 int is_operator(char const my_char)
@@ -20,22 +22,21 @@ int is_operator(char const my_char)
     return (0);
 }
 
-operator_t *get_operator(char const symbol)
+operator_t get_operator(char const symbol)
 {
     int i = 0;
-    operator_t const operators[] {
+    operator_t const operators[] = {
         {'+', 2, &my_add},
         {'-', 2, &my_sub},
         {'*', 3, &my_mul},
         {'/', 3, &my_div},
-        {'%', 3, &my_mod},
-        NULL
+        {'%', 3, &my_mod}
     };
 
-    while (operators[i] != NULL) {
+    while (i < OPERATORS_NB) {
         if (symbol == operators[i].symbol)
             return (operators[i]);
         i = i + 1;
     }
-    return (NULL);
+    return (operators[i]);
 }

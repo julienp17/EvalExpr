@@ -9,8 +9,13 @@ CC = gcc
 
 SRC = ./src/main.c \
 	./src/eval_expr.c \
+	./src/expr_to_tokens.c \
+	./src/operator.c \
+	./src/operations.c \
 	./src/queue.c \
-	./src/stack.c
+	./src/stack.c \
+	./src/shunting_yard.c \
+	./src/stack_evaluator.c
 
 OBJ = $(SRC:.c=.o)
 
