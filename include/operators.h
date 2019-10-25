@@ -17,7 +17,7 @@
         int (*operation)(int, int);
     } operator_t;
 
-    int is_operator(char const my_char);
+    int is_operator(char const *expr);
     operator_t get_operator(char const symbol);
 
     int my_add(int a, int b);
