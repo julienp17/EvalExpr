@@ -10,7 +10,7 @@
 
 Test(only_mod, 2mod2)
 {
-    char const *str = "2%%2";
+    char const str[] = "2%2";
     int expected = 0;
     int res = 0;
 
@@ -20,7 +20,7 @@ Test(only_mod, 2mod2)
 
 Test(only_mod, 2mod3)
 {
-    char const *str = "2%%3";
+    char const str[] = "2%3";
     int expected = 2;
     int res = 0;
 
@@ -30,7 +30,7 @@ Test(only_mod, 2mod3)
 
 Test(only_mod, 4mod16)
 {
-    char const *str = "4%%16";
+    char const str[] = "4%16";
     int expected = 4;
     int res = 0;
 
@@ -40,7 +40,7 @@ Test(only_mod, 4mod16)
 
 Test(only_mod, 18mod16)
 {
-    char const *str = "18%%16";
+    char const str[] = "18%16";
     int expected = 2;
     int res = 0;
 
@@ -50,7 +50,7 @@ Test(only_mod, 18mod16)
 
 Test(only_mod, 0mod42)
 {
-    char const *str = "0%%42";
+    char const str[] = "0%42";
     int expected = 0;
     int res = 0;
 
@@ -60,7 +60,7 @@ Test(only_mod, 0mod42)
 
 Test(only_mod, 000mod42)
 {
-    char const *str = "000%%42";
+    char const str[] = "000%42";
     int expected = 0;
     int res = 0;
 
@@ -70,7 +70,7 @@ Test(only_mod, 000mod42)
 
 Test(only_mod, very_long_modulo)
 {
-    char const *str = "173531%%37671";
+    char const str[] = "173531%37671";
     int expected = 22847;
     int res = 0;
 
