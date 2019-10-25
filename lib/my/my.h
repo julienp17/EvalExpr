@@ -9,8 +9,12 @@
     #define __DEF_MY__
 
     void my_putchar(char my_char);
+    int my_putstr(char const *str);
 
     int my_is_digit(char const my_char);
+    int is_left_paren(char const my_char);
+    int is_right_paren(char const my_char);
+    int is_paren(char const my_char);
     int my_str_isnum(char const *str);
     int my_strcmp(char const *s1, char const *s2);
     int my_get_denominator(int const nb);
