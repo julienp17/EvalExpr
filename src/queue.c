@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include "queue.h"
+#include "my.h"
 
 void queue_push(queue_t **queue_front, char *data)
 {
@@ -39,4 +40,16 @@ char *queue_pop(queue_t **queue_front)
     (*queue_front) = (*queue_front)->next;
     free(to_pop);
     return (data);
+}
+
+void queue_print(queue_t *queue)
+{
+    while (queue) {
+        my_putchar('[');
+        my_putstr(queue->data);
+        my_putchar(']');
+        my_putstr(" -> ");
+        queue = queue->next;
+    }
+    my_putstr("NULL");
 }
