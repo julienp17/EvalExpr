@@ -13,16 +13,17 @@
 #include "operators.h"
 
 void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack);
+int stack_needs_to_be_emptied(stack_t *stack, char operator);
 
 queue_t *shunting_yard(char const *expr)
 {
-    int i = 0;
     char **tokens = NULL;
     queue_t *queue = NULL;
     stack_t *stack = NULL;
 
     tokens = expr_to_tokens(expr);
-    get_output_queue(tokens, i, &queue, &stack);
+
+    get_output_queue(tokens, 0, &queue, &stack);
     while (stack != NULL)
         queue_push(&queue, stack_pop(&stack));
     return (queue);
@@ -34,10 +35,8 @@ void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack)
         return;
     if (my_str_isnum(tokens[i]))
         queue_push(queue, tokens[i]);
-    if (is_operator(tokens[i][0])) {
-        while ((*stack) != NULL &&
-               has_ge_precedence((*stack)->data[0], tokens[i][0]) &&
-               !is_left_paren((*stack)->data[0]))
+    if (is_operator(tokens[i])) {
+        while (stack_needs_to_be_emptied((*stack), tokens[i][0]))
             queue_push(queue, stack_pop(stack));
         stack_push(stack, tokens[i]);
     }
@@ -52,20 +51,21 @@ void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack)
     get_output_queue(tokens, i + 1, queue, stack);
 }
 
-int has_ge_precedence(char symbol1, char symbol2)
+int stack_needs_to_be_emptied(stack_t *stack, char operator)
+{
+    if (stack == NULL)
+        return (0);
+    if (is_left_paren(stack->data[0]))
+        return (0);
+    if (has_less_precedence(stack->data[0], operator))
+        return (0);
+    return (1);
+}
+
+int has_less_precedence(char symbol1, char symbol2)
 {
     operator_t op1 = get_operator(symbol1);
     operator_t op2 = get_operator(symbol2);
 
-    return (op1.precedence >= op2.precedence);
-}
-
-int is_left_paren(char const my_char)
-{
-    return (my_char == '(');
-}
-
-int is_right_paren(char const my_char)
-{
-    return (my_char == ')');
+    return (op1.precedence < op2.precedence);
 }
