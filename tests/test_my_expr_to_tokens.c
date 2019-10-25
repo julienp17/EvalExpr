@@ -35,6 +35,15 @@ Test(get_tokens_nb, 5_tokens)
     cr_assert_eq(tokens_nb, 5);
 }
 
+Test(get_tokens_nb, minus_signs)
+{
+    char expr[] = "-32--15+(5*-6)";
+    int tokens_nb = 0;
+
+    tokens_nb = get_tokens_nb(expr);
+    cr_assert_eq(tokens_nb, 9);
+}
+
 Test(get_next_chars_nb, operator)
 {
     char *expr = "32+14-5";
