@@ -8,9 +8,13 @@
 CC = gcc
 
 SRC = ../src/eval_expr.c \
+	../src/expr_to_tokens.c \
+	../src/operator.c \
+	../src/operations.c \
 	../src/queue.c \
 	../src/stack.c \
-	../src/expr_to_tokens.c
+	../src/shunting_yard.c \
+	../src/stack_evaluator.c
 
 SRC_UT = ./test_only_add.c \
 	./test_only_sub.c \
