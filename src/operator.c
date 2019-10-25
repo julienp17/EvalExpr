@@ -9,13 +9,15 @@
 #include "my.h"
 #include "operators.h"
 
-int is_operator(char const my_char)
+int is_operator(char const *expr)
 {
     char const *operators = OPERATORS;
     int i = 0;
 
+    if (my_strlen(expr) != 1)
+        return (0);
     while (i < my_strlen(operators)) {
-        if (my_char == operators[i])
+        if (expr[0] == operators[i])
             return (1);
         i = i + 1;
     }
