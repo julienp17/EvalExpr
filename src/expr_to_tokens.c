@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include "my.h"
 #include "evalexpr.h"
+#include "operators.h"
+
+static int minus_is_operator(char const *expr, int i);
 
 char **expr_to_tokens(char const *expr)
 {
@@ -33,6 +36,8 @@ int get_tokens_nb(char const *expr)
     int tokens_nb = 0;
 
     while (expr[i] != '\0') {
+        if (expr[i] == '-' && !minus_is_operator(expr, i))
+            i = i + 1;
         if (my_is_digit(expr[i])) {
             tokens_nb = tokens_nb + 1;
             while (my_is_digit(expr[i]))
@@ -45,16 +50,28 @@ int get_tokens_nb(char const *expr)
     return (tokens_nb);
 }
 
-int get_next_chars_nb(char const *str, int j)
+int get_next_chars_nb(char const *expr, int j)
 {
     int i = j;
 
-    if (my_is_digit(str[i])) {
-        while (my_is_digit(str[i]))
+    if (expr[i] == '-' && !minus_is_operator(expr, i))
+        i = i + 1;
+    if (my_is_digit(expr[i])) {
+        while (my_is_digit(expr[i]))
             i = i + 1;
     } else
-        i = i + 1;
+        return (1);
     return (i - j);
+}
+
+static int minus_is_operator(char const *expr, int i)
+{
+    if (i == 0)
+        return (0);
+    if (my_is_digit(expr[(i - 1)]))
+        return (1);
+    else
+        return (0);
 }
 
 char *get_next_token(char const *expr, int *j)
@@ -65,13 +82,7 @@ char *get_next_token(char const *expr, int *j)
 
     chars_nb = get_next_chars_nb(expr, *j);
     token = malloc((chars_nb + 1) * sizeof(char));
-    if (my_is_digit(expr[*j])) {
-        while (my_is_digit(expr[*j])) {
-            token[i] = expr[*j];
-            i = i + 1;
-            *j = *j + 1;
-        }
-    } else {
+    while (i < chars_nb) {
         token[i] = expr[*j];
         i = i + 1;
         *j = *j + 1;
