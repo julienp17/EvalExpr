@@ -180,8 +180,8 @@ Test(ops, test_number_alone)
 
 Test(ops, test_11)
 {
-    char const str[] = "87*(8413*78/(9-0*(7795-2)/74)-85)*2 -(((89*488-(98+(0+9*7)))))";
-    int expected = 12628627;
+    char const str[] = "8*(13*7/(9-0*(795-2)/74)-5)*2-(((9*48-(98+(0+9*7)))))";
+    int expected = -191;
     int res = 0;
 
     res = eval_expr(str);
