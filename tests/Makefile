@@ -25,8 +25,7 @@ SRC_UT = ./test_only_add.c \
 	./test_queue.c \
 	./test_stack.c \
 	./test_my_expr_to_tokens.c \
-	./test_space.c \
-	./test_error.c
+	./test_space.c
 
 OBJ = $(SRC_UT:.c=.o)
 
