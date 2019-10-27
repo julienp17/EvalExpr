@@ -108,6 +108,16 @@ Test(ops, test_2p2_lots_of_parentheses)
     cr_assert_eq(res, expected);
 }
 
+Test(ops, test_2p2_p2_lots_of_parentheses)
+{
+    char const str[] = "((((((((((((((((((((((((2+2)+2)))))))))))))))))))))))";
+    int expected = 6;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
 Test(ops, test_int_max)
 {
     char const str[] = "2147483647";
@@ -118,10 +128,40 @@ Test(ops, test_int_max)
     cr_assert_eq(res, expected);
 }
 
+Test(ops, test_int_max_p1)
+{
+    char const str[] = "2147483647+1";
+    int expected = -2147483648;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
 Test(ops, test_int_min)
 {
     char const str[] = "-2147483648";
     int expected = -2147483648;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
+Test(ops, test_int_min_m1)
+{
+    char const str[] = "-2147483648-1";
+    int expected = 2147483647;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
+Test(ops, test_number_alone)
+{
+    char const str[] = "42";
+    int expected = 42;
     int res = 0;
 
     res = eval_expr(str);
