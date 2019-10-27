@@ -38,3 +38,13 @@ Test(error, letter_number)
     cr_assert_eq(res, expected);
 }
 
+Test(error, letters_number)
+{
+    char const str[] = "svhbdvhbdsvjsbvja+89-8";
+    int expected = 81;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
