@@ -20,8 +20,10 @@
     int my_get_denominator(int const nb);
     int my_intlen(int nb);
     int my_strlen(char const *str);
+    int my_strlen_ns(char const *str);
     int my_put_nbr(int nb);
     int my_strnum_to_int(char *str);
 
+    char *my_strdup_ns(char const *str);
     char *my_int_to_strnum(int nb);
 #endif

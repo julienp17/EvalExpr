@@ -15,8 +15,10 @@ SRC = ./my_get_denominator.c \
 	./my_putchar.c \
 	./my_putstr.c \
 	./my_str_isnum.c \
+	./my_strdup_ns.c \
 	./my_strcmp.c \
 	./my_strlen.c \
+	./my_strlen_ns.c \
 	./my_strnum_to_int.c \
 	./my_is_paren.c
 
