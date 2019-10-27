@@ -148,12 +148,16 @@ Test(ops, test_int_min)
     cr_assert_eq(res, expected);
 }
 
-<<<<<<< HEAD
-Test(error, test_10)
+Test(ops, test_10)
 {
     char const str[] = "87*(8413*78/(9-0*(7795-2)/74)-85)*2";
     int expected = 12671898;
-=======
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
 Test(ops, test_int_min_m1)
 {
     char const str[] = "-2147483648-1";
@@ -168,7 +172,16 @@ Test(ops, test_number_alone)
 {
     char const str[] = "42";
     int expected = 42;
->>>>>>> f93ce4fd3cf46fb3be45cf86047e38651d5d1eb4
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
+Test(ops, test_11)
+{
+    char const str[] = "87*(8413*78/(9-0*(7795-2)/74)-85)*2 -(((89*488-(98+(0+9*7)))))";
+    int expected = 12628627;
     int res = 0;
 
     res = eval_expr(str);
