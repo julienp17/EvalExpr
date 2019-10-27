@@ -68,6 +68,8 @@ static int minus_is_operator(char const *expr, int i)
 {
     if (i == 0)
         return (0);
+    if (is_right_paren(expr[(i - 1)]))
+        return (1);
     if (!my_is_digit(expr[(i - 1)]) && my_is_digit(expr[(i + 1)]))
         return (0);
     else
