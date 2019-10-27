@@ -38,13 +38,3 @@ Test(error, letter_number)
     cr_assert_eq(res, expected);
 }
 
-Test(error, 2op)
-{
-    char const str[] = "1++1";
-    int expected = 9;
-    int res = 0;
-
-    res = eval_expr(str);
-    cr_assert_eq(res, expected);
-}
-
