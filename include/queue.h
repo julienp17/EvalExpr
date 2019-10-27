@@ -17,6 +17,6 @@
     char *queue_pop(queue_t **queue_front);
     void queue_print(queue_t *queue);
 
-    queue_t *shunting_yard(char const *expr);
+    queue_t *shunting_yard(char **tokens);
     int eval_stack(queue_t **queue);
 #endif
