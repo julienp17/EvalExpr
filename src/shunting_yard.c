@@ -15,13 +15,10 @@
 void get_output_queue(char **tokens, int i, queue_t **queue, stack_t **stack);
 int stack_needs_to_be_emptied(stack_t *stack, char operator);
 
-queue_t *shunting_yard(char const *expr)
+queue_t *shunting_yard(char **tokens)
 {
-    char **tokens = NULL;
     queue_t *queue = NULL;
     stack_t *stack = NULL;
-
-    tokens = expr_to_tokens(expr);
 
     get_output_queue(tokens, 0, &queue, &stack);
     while (stack != NULL)
