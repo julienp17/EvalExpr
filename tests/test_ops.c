@@ -127,3 +127,13 @@ Test(ops, test_int_min)
     res = eval_expr(str);
     cr_assert_eq(res, expected);
 }
+
+Test(error, test_10)
+{
+    char const str[] = "87*(8413*78/(9-0*(7795-2)/74)-85)*2";
+    int expected = 12671898;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
