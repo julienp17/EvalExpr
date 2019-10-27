@@ -98,6 +98,36 @@ Test(only_sub, m000m0000000)
     cr_assert_eq(res, expected);
 }
 
+Test(only_sub, all_kinds_of_minus_signs_test_1)
+{
+    char const str[] = "-2*-2-((4-3)-6)-(7-8)-4";
+    int expected = 6;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
+Test(only_sub, all_kinds_of_minus_signs_test2)
+{
+    char str[] = "((((((((((((((((((((((2-2)-2)))))))))))))))))))))";
+    int expected = -2;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
+Test(only_sub, all_kinds_of_minus_signs_test3)
+{
+    char str[] = "42-84-(3-6)";
+    int expected = -39;
+    int res = 0;
+
+    res = eval_expr(str);
+    cr_assert_eq(res, expected);
+}
+
 Test(only_sub, very_long_difference)
 {
     char const str[] = "-76672319-173347183";
