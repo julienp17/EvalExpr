@@ -51,5 +51,5 @@ void queue_print(queue_t *queue)
         my_putstr(" -> ");
         queue = queue->next;
     }
-    my_putstr("NULL");
+    my_putstr("NULL\n");
 }
